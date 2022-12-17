@@ -5,6 +5,8 @@ Tugas Besar Struktur Data Kelompok
 Topic:
 K-POP Concert Committee
 
+Type: Multi Linked List 1 to N
+
 ### Members
 
 - Alif Taufiqurrahman           (1302213011)
