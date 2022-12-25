@@ -3,7 +3,7 @@
 Tugas Besar Struktur Data Kelompok
 
 Topic:
-K-POP Concert Committee
+K-POP Concert Organizer
 
 Type: Multi Linked List 1 to N
 
