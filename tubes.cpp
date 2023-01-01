@@ -203,9 +203,10 @@ adrKGroup searchKGroup(listNegara L, string namaNegara, string namaKGroup){
 
 void deleteKGroup(listNegara &L, string namaNegara){
     adrNegara n = searchNegara(L,namaNegara);
-    listKGroup L1;
     if(n!=NULL){
-        first(firstKGroup(n))=next(first(firstKGroup(n)));
+        if(first(firstKGroup(n))!=NULL){
+            first(firstKGroup(n))=next(first(firstKGroup(n)));
+        }
     }
 }
 
