@@ -52,7 +52,6 @@ void showNegara(listNegara L){
             n=next(n);
         }
         cout<<info(n).namaNegara<<" - "<<info(n).kota<<" - "<<info(n).tahun<<"\n";
-        cout<<endl;
     }
 }
 
@@ -129,7 +128,6 @@ adrKGroup searchListKGroup(listKGroup L, string nama){
 }
 
 void connectKGroup(listNegara &L1, listKGroup L2, string namaNegara, string namaKGroup){
-    listKGroup L3;
     adrNegara n = searchNegara(L1,namaNegara);
     adrKGroup k = searchListKGroup(L2,namaKGroup);
     if(n!=NULL&&k!=NULL){
@@ -172,19 +170,19 @@ void showAll(listNegara L){
             cout<<endl;
         }
         cout<<info(n).namaNegara<<": \n";
+        i=1;
         k=first(firstKGroup(n));
         if(first(firstKGroup(n))==NULL){
             cout<<"List Concert Kosong"<<endl;
         }else{
             while(k!=NULL){
-                cout<<i<<". "<<info(k).namaGroup<<" - "<<info(k).personel<<"orang - "<<info(k).tour<<endl;
+                cout<<i<<". "<<info(k).namaGroup<<" - "<<info(k).personel<<" personel - "<<info(k).tour<<endl;
                 k=next(k);
+                i++;
             }
         }
     }
 }
-
-
 
 adrKGroup searchKGroup(listNegara L, string namaNegara, string namaKGroup){
     adrNegara n=searchNegara(L,namaNegara);
