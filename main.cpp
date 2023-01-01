@@ -10,6 +10,8 @@ int main()
     createListNegara(LN);
     createListKGroup(LK);
 
+    cout<<"====================================================================="<<endl;
+    
     string namaNegara,namaKGroup,kota,tour;
     int n,tahun,personel;
     cout<<"Jumlah negara yang akan diadakan konser: ";
