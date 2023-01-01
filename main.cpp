@@ -32,9 +32,11 @@ int main()
 
     cout<<"====================================================================="<<endl;
 
-    cout<<"Menghapus negara Vietnam dari List"<<endl<<endl;
+    cout<<"Masukkan nama negara yang akan dihapus dari list: ";
+    getline(cin,namaNegara);
+    cout<<"Menghapus negara "<<namaNegara<<" dari List\n\n";
 
-    deleteNegara(LN,"Vietnam");
+    deleteNegara(LN,namaNegara);
     showNegara(LN);
 
     cout<<"====================================================================="<<endl;
@@ -51,18 +53,13 @@ int main()
         cin.ignore(10000,'\n');
         getline(cin,tour);
         insertKGroup(LK,newKGroup(namaKGroup,personel,tour));
+        namaNegara=" ";
+        while(namaNegara!="-"){
+            cout<<"Masukkan negara yang akan dikunjungi: ";
+            getline(cin,namaNegara);
+            connectKGroup(LN,LK,namaNegara,namaKGroup);
+        }
     }
-    
-    connectKGroup(LN,LK,"Indonesia","ITZY");
-    connectKGroup(LN,LK,"Philippines","ITZY");
-    connectKGroup(LN,LK,"Singapore","ITZY");
-    connectKGroup(LN,LK,"Indonesia","Blackpink");
-    connectKGroup(LN,LK,"Singapore","Blackpink");
-    connectKGroup(LN,LK,"Japan","Blackpink");
-    connectKGroup(LN,LK,"South Korea","Blackpink");
-    connectKGroup(LN,LK,"Singapore","TWICE");
-    connectKGroup(LN,LK,"Philippines","TWICE");
-    connectKGroup(LN,LK,"Indonesia","BTS");
 
     cout<<"====================================================================="<<endl;
 
@@ -70,14 +67,18 @@ int main()
 
     cout<<"====================================================================="<<endl;
 
-    cout<<"Menghapus data K-POP Group yang telah selesai concert di negara Japan"<<endl;
-    deleteKGroup(LN,"Japan");
+    cout<<"Masukkan negara yang telah selesai concert: ";
+    getline(cin,namaNegara);
+    cout<<"\nMenghapus data K-POP Group yang telah selesai concert di negara "<<namaNegara<<endl;
+    deleteKGroup(LN,namaNegara);
     showAll(LN);
 
     cout<<"====================================================================="<<endl;
 
-    cout<<"Menghitung K-POP Group yang akan concert di negara Singapore"<<endl;
-    cout<<jumlahKGroup(LN,"Singapore")<<" K-POP Group"<<endl;
+    cout<<"Masukkan negara yang akan dihitung berapa concert yang akan datang: ";
+    getline(cin,namaNegara);
+    cout<<"K-POP Group yang akan concert di negara"<<namaNegara<<endl;
+    cout<<jumlahKGroup(LN,namaNegara)<<" K-POP Group"<<endl;
 
     cout<<"====================================================================="<<endl;
 
