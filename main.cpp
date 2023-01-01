@@ -10,17 +10,48 @@ int main()
     createListNegara(LN);
     createListKGroup(LK);
 
-    insertNegara(LN,newNegara("Indonesia","Jakarta",2022));
-    insertNegara(LN,newNegara("Japan","Tokyo",2023));
-    insertNegara(LN,newNegara("South Korea","Seoul",2023));
-    insertNegara(LN,newNegara("Singapore","Singapore",2024));
-    insertNegara(LN,newNegara("Philippines","Manila",2022));
-    insertNegara(LN,newNegara("Vietnam","Hanoi",2023));
+    string nama,kota,tour;
+    int n,tahun,personel;
+    cout<<"Jumlah negara yang akan diadakan konser: ";
+    cin>>n;
+    cin.ignore(10000,'\n');
+    for(int i=1; i<=n; i++){
+        cout<<endl<<"Masukkan nama negara: ";
+        getline(cin,nama);
+        cout<<"Masukkan nama kota: ";
+        getline(cin,kota);
+        cout<<"Masukkan tahun: ";
+        cin>>tahun;
+        insertNegara(LN,newNegara(nama,kota,tahun));
+        cin.get();
+    }
 
-    insertKGroup(LK,newKGroup("Blackpink",4,"Born Pink"));
-    insertKGroup(LK,newKGroup("Seventeen",13,"be The Sun"));
-    insertKGroup(LK,newKGroup("ITZY",5,"World Tour"));
-    insertKGroup(LK,newKGroup("MAMAMOO",4,"My Con World Tour"));
+    cout<<"====================================================================="<<endl;
+
+    showNegara(LN);
+
+    cout<<"====================================================================="<<endl;
+
+    cout<<"Menghapus negara Vietnam dari List"<<endl<<endl;
+
+    deleteNegara(LN,"Vietnam");
+    showNegara(LN);
+
+    cout<<"====================================================================="<<endl;
+
+    cout<<"Jumlah K-POP Group yang akan mengadakan konser: ";
+    cin>>n;
+    cin.ignore(10000,'\n');
+    for(int i=1; i<=n; i++){
+        cout<<endl<<"Masukkan nama K-POP Group: ";
+        getline(cin,nama);
+        cout<<"Masukkan nama tour: ";
+        getline(cin,tour);
+        cout<<"Masukkan jumlah personel: ";
+        cin>>personel;
+        insertKGroup(LK,newKGroup(nama,personel,tour));
+        cin.get();
+    }
 
     connectKGroup(LN,LK,"Indonesia","ITZY");
     connectKGroup(LN,LK,"Philippines","ITZY");
@@ -29,15 +60,26 @@ int main()
     connectKGroup(LN,LK,"Singapore","Blackpink");
     connectKGroup(LN,LK,"Japan","Blackpink");
     connectKGroup(LN,LK,"South Korea","Blackpink");
-    connectKGroup(LN,LK,"Singapore","MAMAMOO");
-    connectKGroup(LN,LK,"Philippines","MAMAMOO");
+    connectKGroup(LN,LK,"Singapore","TWICE");
+    connectKGroup(LN,LK,"Philippines","TWICE");
+    connectKGroup(LN,LK,"Indonesia","BTS");
 
-    deleteKGroup(LN,"Japan");
+    cout<<"====================================================================="<<endl;
 
-    showNegara(LN);
     showAll(LN);
 
-    cout<<endl<<jumlahKGroup(LN,"Singapore");
+    cout<<"====================================================================="<<endl;
+
+    cout<<"Menghapus data K-POP Group yang telah selesai concert di negara Japan"<<endl;
+    deleteKGroup(LN,"Japan");
+    showAll(LN);
+
+    cout<<"====================================================================="<<endl;
+
+    cout<<"Menghitung K-POP Group yang akan concert di negara Singapore"<<endl;
+    cout<<jumlahKGroup(LN,"Singapore")<<" K-POP Group"<<endl;
+
+    cout<<"====================================================================="<<endl;
 
     return 0;
 }
