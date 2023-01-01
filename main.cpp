@@ -10,19 +10,19 @@ int main()
     createListNegara(LN);
     createListKGroup(LK);
 
-    string nama,kota,tour;
+    string namaNegara,namaKGroup,kota,tour;
     int n,tahun,personel;
     cout<<"Jumlah negara yang akan diadakan konser: ";
     cin>>n;
     cin.ignore(10000,'\n');
     for(int i=1; i<=n; i++){
         cout<<endl<<"Masukkan nama negara: ";
-        getline(cin,nama);
+        getline(cin,namaNegara);
         cout<<"Masukkan nama kota: ";
         getline(cin,kota);
         cout<<"Masukkan tahun: ";
         cin>>tahun;
-        insertNegara(LN,newNegara(nama,kota,tahun));
+        insertNegara(LN,newNegara(namaNegara,kota,tahun));
         cin.get();
     }
 
@@ -44,15 +44,15 @@ int main()
     cin.ignore(10000,'\n');
     for(int i=1; i<=n; i++){
         cout<<endl<<"Masukkan nama K-POP Group: ";
-        getline(cin,nama);
-        cout<<"Masukkan nama tour: ";
-        getline(cin,tour);
+        getline(cin,namaKGroup);
         cout<<"Masukkan jumlah personel: ";
         cin>>personel;
-        insertKGroup(LK,newKGroup(nama,personel,tour));
-        cin.get();
+        cout<<"Masukkan nama tour: ";
+        cin.ignore(10000,'\n');
+        getline(cin,tour);
+        insertKGroup(LK,newKGroup(namaKGroup,personel,tour));
     }
-
+    
     connectKGroup(LN,LK,"Indonesia","ITZY");
     connectKGroup(LN,LK,"Philippines","ITZY");
     connectKGroup(LN,LK,"Singapore","ITZY");
